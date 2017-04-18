@@ -12,15 +12,52 @@
     tools:context="com.markbarrettdesign.ticketrv2.LoginActivity"
     android:background="#00ca9f">
 
-    <ImageView
+    <Button
+        android:text="Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo"
-        android:id="@+id/imageView"
-        android:layout_marginBottom="554dp"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/bLogin"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/etPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-medium"
+        android:background="#FFFFFF"
+        android:textColor="#00ca9f" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="89dp"
+        android:id="@+id/textView2"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        tools:text="Don't have an account? Signup for one now on the Ticketr website."
+        android:layout_below="@+id/bLogin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Username"
+        android:ems="10"
+        android:layout_marginTop="26dp"
+        android:id="@+id/etUsername"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Username"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColorLink="#FFFFFF"
+        android:backgroundTint="#FFFFFF"/>
 
     <TextView
         android:text="Welcome. Login to start managing your event and scan tickets."
@@ -36,57 +73,33 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:layout_below="@+id/textView"
+        app:srcCompat="@drawable/logo"
+        android:id="@+id/imageView"
+        android:contentDescription="Ticketr Logo"
+        android:layout_marginBottom="40dp"
+        android:layout_alignBottom="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
-        android:id="@+id/editText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:layout_marginTop="33dp"
-        android:layout_below="@+id/editText2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:id="@+id/textView2"
-        android:textAlignment="center"
+        android:id="@+id/etPassword"
+        android:text="Password"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        tools:text="Don't have an account? Signup for one now on the Ticketr website."
-        android:layout_below="@+id/button2"
+        android:hint="Password"
+        android:textColorLink="#FFFFFF"
+        android:layout_below="@+id/etUsername"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="#FFFFFF" />
 
 </RelativeLayout>
 
