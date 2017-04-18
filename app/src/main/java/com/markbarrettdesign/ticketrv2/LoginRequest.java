@@ -12,7 +12,7 @@ import java.util.Map;
  */
 
 public class LoginRequest extends StringRequest {
-    private static final String LOGIN_REQUEST_URL = "http://46.101.0.129/api/authenticate";
+    private static final String LOGIN_REQUEST_URL = "http://46.101.0.129/api/authenticate/";
     private Map<String, String> params;
 
     public LoginRequest(String username, String password, Response.Listener<String> listener) {
