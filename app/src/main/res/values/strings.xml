@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TicketrV2</string>
+    <string name="title_activity_validation_result">ValidationResult</string>
 </resources>

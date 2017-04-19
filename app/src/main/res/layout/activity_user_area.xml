@@ -16,54 +16,98 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/logo_small"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:maxWidth="42dp"
         android:maxHeight="42dp"
-        android:id="@+id/imageView4" />
-
-    <SurfaceView
-        android:id="@+id/cameraPreview"
-        android:layout_width="match_parent"
-        android:layout_height="350px"
-        android:layout_below="@+id/etUsername"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textColor="#FFFFFF"
-        android:fontFamily="sans-serif"
-        android:textSize="18sp"
-        android:text="LOGGED IN AS:"
-        android:layout_below="@+id/imageView4"
+        android:id="@+id/imageView4"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:textSize="20sp"
-        android:layout_below="@+id/cameraPreview"
-        android:id="@+id/txtResult"
-        android:layout_marginTop="20dp"
-        android:text = "Please focus camera on QR Code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Username"
-        android:ems="10"
-        android:id="@+id/etUsername"
+        android:id="@+id/tvWelcomeMessage"
         android:textColor="#FFFFFF"
-        android:layout_below="@+id/textView4"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/imageView4"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="My Events"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bMyEvents"
+        android:textSize="24sp"
+        android:background="#FFFFFF"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#00ca9f"
+        android:layout_below="@+id/bScanTickets"
+        android:layout_alignLeft="@+id/bScanTickets"
+        android:layout_alignStart="@+id/bScanTickets"
+        android:layout_marginTop="23dp"
+        android:layout_alignRight="@+id/bScanTickets"
+        android:layout_alignEnd="@+id/bScanTickets" />
+
+    <Button
+        android:text="Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bLogout"
+        android:textSize="24sp"
+        android:background="#FFFFFF"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#00ca9f"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/ bMyEvents"
+        android:layout_alignLeft="@+id/ bMyEvents"
+        android:layout_alignStart="@+id/ bMyEvents"
+        android:layout_alignRight="@+id/ bMyEvents"
+        android:layout_alignEnd="@+id/ bMyEvents" />
+
+    <Button
+        android:text="My Tickets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bMyTickets"
+        android:textSize="24sp"
+        android:background="#FFFFFF"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#00ca9f"
+        android:width="300dp"
+        android:layout_below="@+id/tvWelcomeMessage"
         android:layout_centerHorizontal="true"
-        android:textAlignment="center" />
+        android:layout_marginTop="23dp" />
+
+    <Button
+        android:text="Scan Tickets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bScanTickets"
+        android:textSize="24sp"
+        android:background="#FFFFFF"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#00ca9f"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/bMyTickets"
+        android:layout_centerHorizontal="true"
+        android:width="300dp" />
+    <![CDATA[
 
 
+
+
+
+    //Initially hide the button
+
+    />
+
+
+
+
+]]>
 </RelativeLayout>

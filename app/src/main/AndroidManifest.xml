@@ -2,10 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.markbarrettdesign.ticketrv2">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -20,8 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserAreaActivity"></activity>
-        <meta-data android:name="com.google.com.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+        <activity android:name=".UserAreaActivity" />
+
+        <meta-data
+            android:name="com.google.com.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+
     </application>
 
 </manifest>
