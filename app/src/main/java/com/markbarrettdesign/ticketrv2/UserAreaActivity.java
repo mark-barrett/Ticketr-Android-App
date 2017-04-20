@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -89,7 +93,7 @@ public class UserAreaActivity extends AppCompatActivity {
                                 }
 
                                 Intent intent = new Intent(UserAreaActivity.this, MyTicketsActivity.class);
-                                //intent.putExtra("username", username);
+                                intent.putExtra("orders", orders);
                                 UserAreaActivity.this.startActivity(intent);
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(UserAreaActivity.this);

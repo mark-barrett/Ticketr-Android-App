@@ -1,10 +1,12 @@
 package com.markbarrettdesign.ticketrv2;
 
+import java.io.Serializable;
+
 /**
  * Created by markbarrett on 20/04/2017.
  */
 
-public class Order {
+public class Order implements Serializable {
     String order_number;
     int ticket;
     int event;
