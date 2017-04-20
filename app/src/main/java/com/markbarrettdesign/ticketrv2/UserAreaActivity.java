@@ -17,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,31 +67,26 @@ public class UserAreaActivity extends AppCompatActivity {
                             // Check to make sure that the JsonArray has models in it
                             if (jsonResponse.toString().contains("\"model\":\""+"ticketr.order"+"\"")) {
 
-                                // Array list to save JSONObjects
-                                ArrayList<JSONObject> jsonObjectArrayList = new ArrayList<JSONObject>();
-
-                                // Loop through jsonArray and turning them into objects, taking: order_number, ticket, event, user, order_code
-                                for(int i=0; i<jsonResponse.length(); i++) {
-                                    JSONObject order = jsonResponse.getJSONObject(i);
-                                    jsonObjectArrayList.add(order);
-                                }
-
-                                // Now lets put them into order objects
+                                // Make an array list to store orders
                                 ArrayList<Order> orders = new ArrayList<Order>();
-                                for(int i=0; i<jsonObjectArrayList.size(); i++) {
-                                    //Create order
-                                    Order order = new Order(jsonObjectArrayList.get(i).getString("order_number"),
-                                                            jsonObjectArrayList.get(i).getInt("ticket"),
-                                                            jsonObjectArrayList.get(i).getInt("event"),
-                                                            jsonObjectArrayList.get(i).getInt("user"),
-                                                            jsonObjectArrayList.get(i).getString("order_code"),
-                                                            jsonObjectArrayList.get(i).getBoolean("used"),
-                                                            jsonObjectArrayList.get(i).getBoolean("for_sale"));
 
-                                    //Add the order
+                                // Loop through the JSONArray, if the name is fields, then copy that into the new array
+                                for(int i=0; i<jsonResponse.length(); i++) {
+                                    // Grab the field
+                                    JSONObject field = new JSONObject(jsonResponse.getJSONObject(i).getString("fields"));
+
+                                    // Create an order object
+                                    Order order = new Order(field.getString("order_number"),
+                                                            field.getInt("ticket"),
+                                                            field.getInt("event"),
+                                                            field.getInt("user"),
+                                                            field.getString("order_code"),
+                                                            field.getBoolean("used"),
+                                                            field.getBoolean("for_sale"));
+
+                                    // Add the order to the array list.
                                     orders.add(order);
                                 }
-                                System.out.println(orders);
 
                                 Intent intent = new Intent(UserAreaActivity.this, MyTicketsActivity.class);
                                 //intent.putExtra("username", username);

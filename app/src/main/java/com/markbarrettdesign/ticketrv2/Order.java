@@ -22,4 +22,8 @@ public class Order {
         this.used = used;
         this.for_sale = for_sale;
     }
+
+    public String toString() {
+        return this.order_number+"-"+this.ticket+"-"+this.event+"-"+this.user+"-"+this.order_code+"-"+this.used+"-"+this.for_sale;
+    }
 }
