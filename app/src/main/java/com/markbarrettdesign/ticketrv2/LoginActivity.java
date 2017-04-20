@@ -1,6 +1,7 @@
 package com.markbarrettdesign.ticketrv2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,6 +51,13 @@ public class LoginActivity extends AppCompatActivity {
                             if (success) {
                                 String username = jsonResponse.getString("username");
                                 String password = jsonResponse.getString("password");
+
+                                // Save the users details to shared preferences
+                                SharedPreferences sp=getSharedPreferences("Login", 0);
+                                SharedPreferences.Editor Ed=sp.edit();
+                                Ed.putString("username",username);
+                                Ed.putString("password",password);
+                                Ed.commit();
 
                                 Intent intent = new Intent(LoginActivity.this, UserAreaActivity.class);
                                 intent.putExtra("username", username);

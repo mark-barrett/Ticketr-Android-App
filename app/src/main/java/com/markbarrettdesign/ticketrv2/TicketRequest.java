@@ -12,11 +12,11 @@ import java.util.Map;
  * Copyright 2017 Ticketr Android App V1.0
  */
 
-public class LoginRequest extends StringRequest {
-    private static final String LOGIN_REQUEST_URL = "http://178.62.41.17/api/authenticate/";
+public class TicketRequest extends StringRequest {
+    private static final String LOGIN_REQUEST_URL = "http://178.62.41.17/api/tickets/";
     private Map<String, String> params;
 
-    public LoginRequest(String username, String password, Response.Listener<String> listener) {
+    public TicketRequest(String username, String password, Response.Listener<String> listener) {
         super(Request.Method.POST, LOGIN_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("username", username);

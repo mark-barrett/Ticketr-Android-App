@@ -1,18 +1,19 @@
 package com.markbarrettdesign.ticketrv2;
 
-import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,15 +37,81 @@ public class UserAreaActivity extends AppCompatActivity {
         // Get each button
         final Button bMyTickets = (Button) findViewById(R.id.bMyTickets);
         final Button bScanTickets = (Button) findViewById(R.id.bScanTickets);
-        final Button bMyEvents = (Button) findViewById(R.id.bMyEvents);
+        final Button bMyEvent = (Button) findViewById(R.id.bMyEvent);
         final Button bLogout = (Button) findViewById(R.id.bLogout);
 
-        //Listen for each button
+        //Listen for my tickets press
         bMyTickets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("My Tickets Pressed");
+
+                // Get user details from shared preferences
+                SharedPreferences userDetails = getSharedPreferences("Login", MODE_PRIVATE);
+                String username = userDetails.getString("username", "");
+                String password = userDetails.getString("password", "");
+
+                // Now that we have the users information that they entered, we must make a request to the API.
+                // Response received from the server
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray jsonResponse = new JSONArray(response);
+
+                            if (jsonResponse.toString().contains("\"model\":\""+"ticketr.order"+"\"")) {
+
+                                // Loop through jsonObject, taking: order_number, ticket, event, user, order_code
+                                System.out.println("We are gucci");
+
+
+                                Intent intent = new Intent(UserAreaActivity.this, MyTicketsActivity.class);
+                                //intent.putExtra("username", username);
+                                UserAreaActivity.this.startActivity(intent);
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(UserAreaActivity.this);
+                                builder.setMessage("Unable to get tickets. Sorry :(")
+                                        .setNegativeButton("Retry", null)
+                                        .create()
+                                        .show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                TicketRequest ticketRequest = new TicketRequest(username, password, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(UserAreaActivity.this);
+                queue.add(ticketRequest);
 
             }
-        }
+        });
+
+        //Listen for scan tickets press
+        bScanTickets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Scan Tickets Pressed");
+            }
+        });
+
+        //Listen for my events press
+        bMyEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("My Events Pressed");
+            }
+        });
+
+        //Listen for logout press
+        bLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Logout Pressed");
+            }
+        });
+
     }
 }
