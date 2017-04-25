@@ -102,7 +102,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Don't have an account? No problem! You can register for one here!"
+        android:text="Don't have an account? No problem! You can register for one on the Ticketr website."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"

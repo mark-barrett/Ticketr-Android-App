@@ -25,6 +25,8 @@ import java.util.ArrayList;
 
 public class ScannedItemActivity extends AppCompatActivity {
 
+    String response_reason = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +78,10 @@ public class ScannedItemActivity extends AppCompatActivity {
             }
         };
 
-        CheckInRequest checkInRequest = new CheckInRequest(qrcode, responseListener);
+        SharedPreferences userDetails = getSharedPreferences("Login", MODE_PRIVATE);
+        String username = userDetails.getString("username", "");
+
+        CheckInRequest checkInRequest = new CheckInRequest(qrcode, username, responseListener);
         RequestQueue queue = Volley.newRequestQueue(ScannedItemActivity.this);
         queue.add(checkInRequest);
 

@@ -34,36 +34,21 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="My Events"
+        android:text="Logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bMyEvent"
+        android:id="@+id/bLogout"
         android:textSize="24sp"
         android:background="#FFFFFF"
         android:textAllCaps="false"
         android:fontFamily="sans-serif-medium"
         android:textColor="#00ca9f"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/bScanTickets"
         android:layout_alignLeft="@+id/bScanTickets"
         android:layout_alignStart="@+id/bScanTickets"
-        android:layout_marginTop="23dp"
         android:layout_alignRight="@+id/bScanTickets"
         android:layout_alignEnd="@+id/bScanTickets" />
-
-    <Button
-        android:text="My Tickets"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bMyTickets"
-        android:textSize="24sp"
-        android:background="#FFFFFF"
-        android:textAllCaps="false"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#00ca9f"
-        android:width="300dp"
-        android:layout_below="@+id/tvWelcomeMessage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp" />
 
     <Button
         android:text="Scan Tickets"
@@ -75,29 +60,13 @@
         android:textAllCaps="false"
         android:fontFamily="sans-serif-medium"
         android:textColor="#00ca9f"
-        android:layout_marginTop="21dp"
         android:width="300dp"
-        android:layout_below="@+id/bMyTickets"
-        android:layout_alignLeft="@+id/bMyTickets"
-        android:layout_alignStart="@+id/bMyTickets" />
-
-    <Button
-        android:text="Logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bLogout"
-        android:textSize="24sp"
-        android:background="#FFFFFF"
-        android:textAllCaps="false"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="#00ca9f"
-        android:layout_marginTop="23dp"
-        android:layout_below="@+id/bMyEvent"
-        android:layout_alignLeft="@+id/bMyEvent"
-        android:layout_alignStart="@+id/bMyEvent"
-        android:layout_alignRight="@+id/bMyEvent"
-        android:layout_alignEnd="@+id/bMyEvent" />
+        android:layout_marginTop="81dp"
+        android:layout_below="@+id/tvWelcomeMessage"
+        android:layout_centerHorizontal="true" />
     <![CDATA[
+
+
 
 
 
@@ -106,6 +75,7 @@
     //Initially hide the button
 
     />
+
 
 
 

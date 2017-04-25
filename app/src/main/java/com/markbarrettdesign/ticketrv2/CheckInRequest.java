@@ -16,10 +16,11 @@ public class CheckInRequest extends StringRequest {
     private static final String CHECK_IN_REQUEST_URL = "http://178.62.41.17/api/validate-ticket/";
     private Map<String, String> params;
 
-    public CheckInRequest(String qrcode, Response.Listener<String> listener) {
+    public CheckInRequest(String qrcode, String username, Response.Listener<String> listener) {
         super(Request.Method.POST, CHECK_IN_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("order_code", qrcode);
+        params.put("username", username);
     }
 
     @Override
