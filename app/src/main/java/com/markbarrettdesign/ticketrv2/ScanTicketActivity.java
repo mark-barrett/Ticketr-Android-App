@@ -37,6 +37,7 @@ public class ScanTicketActivity extends AppCompatActivity {
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     final int ReqestCameraPermissionID = 1001;
+    boolean stopper = false;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -121,13 +122,16 @@ public class ScanTicketActivity extends AppCompatActivity {
                     txtResult.post(new Runnable() {
                         @Override
                         public void run() {
-                            Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-                            vibrator.vibrate(1000);
-                            String qrcode = qrcodes.valueAt(0).displayValue;
+                            if(stopper==false) {
+                                stopper = true;
+                                Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                                vibrator.vibrate(1000);
+                                String qrcode = qrcodes.valueAt(0).displayValue;
 
-                            Intent intent = new Intent(ScanTicketActivity.this,ScannedItemActivity.class);
-                            intent.putExtra("qrcode", qrcode);
-                            ScanTicketActivity.this.startActivity(intent);
+                                Intent intent = new Intent(ScanTicketActivity.this, ScannedItemActivity.class);
+                                intent.putExtra("qrcode", qrcode);
+                                ScanTicketActivity.this.startActivity(intent);
+                            }
                         }
                     });
                 }

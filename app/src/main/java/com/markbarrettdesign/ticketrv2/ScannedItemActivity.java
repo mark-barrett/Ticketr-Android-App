@@ -7,6 +7,9 @@ import android.os.Parcelable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,6 +33,21 @@ public class ScannedItemActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String qrcode = intent.getStringExtra("qrcode");
 
+        final TextView tvOrderNumber = (TextView) findViewById(R.id.tvOrderNumber);
+        final TextView tvUser = (TextView) findViewById(R.id.tvUser);
+
+        final Button bScanAnother = (Button) findViewById(R.id.bScanAnother);
+
+        //Listen for scan another press
+        bScanAnother.setOnClickListener(new View.OnClickListener() {
+                                          @Override
+                                          public void onClick(View v) {
+                                              System.out.println("Scan Another");
+                                              Intent intent = new Intent(ScannedItemActivity.this, ScanTicketActivity.class);
+                                              ScannedItemActivity.this.startActivity(intent);
+                                          }
+                                      });
+
         // Response received from the server
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -40,8 +58,16 @@ public class ScannedItemActivity extends AppCompatActivity {
 
                     if (success) {
                         System.out.println("It's okay");
+                        String order_number = jsonResponse.getString("order_number");
+                        String user = jsonResponse.getString("user");
+
+                        tvOrderNumber.setText(order_number);
+                        tvUser.setText("Hey "+user+", welcome to the event!");
+
+                        // Now that we've got it all, we must render it to a text view with a little tick :)
                     } else {
-                        System.out.println("Not okay");
+                        Intent intent = new Intent(ScannedItemActivity.this, NotValidActivity.class);
+                        ScannedItemActivity.this.startActivity(intent);
                     }
 
                 } catch (JSONException e) {
