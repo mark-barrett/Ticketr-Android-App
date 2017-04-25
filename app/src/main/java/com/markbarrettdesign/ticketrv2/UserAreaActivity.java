@@ -81,12 +81,12 @@ public class UserAreaActivity extends AppCompatActivity {
 
                                     // Create an order object
                                     Order order = new Order(field.getString("order_number"),
-                                                            field.getInt("ticket"),
-                                                            field.getInt("event"),
-                                                            field.getInt("user"),
-                                                            field.getString("order_code"),
-                                                            field.getBoolean("used"),
-                                                            field.getBoolean("for_sale"));
+                                            field.getInt("ticket"),
+                                            field.getInt("event"),
+                                            field.getInt("user"),
+                                            field.getString("order_code"),
+                                            field.getBoolean("used"),
+                                            field.getBoolean("for_sale"));
 
                                     // Add the order to the array list.
                                     orders.add(order);
