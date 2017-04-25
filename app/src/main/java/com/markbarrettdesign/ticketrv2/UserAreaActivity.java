@@ -121,6 +121,8 @@ public class UserAreaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("Scan Tickets Pressed");
+                Intent intent = new Intent(UserAreaActivity.this, ScanTicketActivity.class);
+                UserAreaActivity.this.startActivity(intent);
             }
         });
 

@@ -13,8 +13,7 @@ public class MyTicketsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_tickets);
-
-        System.out.println("In my tickets getting the intent");
+        
         ArrayList<Order> orders =  (ArrayList<Order>)getIntent().getSerializableExtra("orders");
 
         populateListView(orders);
@@ -24,7 +23,7 @@ public class MyTicketsActivity extends AppCompatActivity {
         // Build the adapter
         ArrayAdapter<Order> adapter = new ArrayAdapter<Order>(
                 this, // Context
-                R.layout.ticket, // Layou to use
+                R.layout.ticket, // Layout to use
                 orders); // Items to be displayed
 
         ListView list = (ListView) findViewById(R.id.listViewMain);
