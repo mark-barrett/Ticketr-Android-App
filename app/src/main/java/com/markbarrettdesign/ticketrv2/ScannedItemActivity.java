@@ -33,10 +33,14 @@ public class ScannedItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scanned_item);
 
         Intent intent = getIntent();
-        String qrcode = intent.getStringExtra("qrcode");
+        String user = intent.getStringExtra("user");
+        String order_number = intent.getStringExtra("order_number");
 
         final TextView tvOrderNumber = (TextView) findViewById(R.id.tvOrderNumber);
         final TextView tvUser = (TextView) findViewById(R.id.tvUser);
+
+        tvUser.setText("Hey "+user+", Welcome to the Event!");
+        tvOrderNumber.setText("Order #: "+order_number);
 
         final Button bScanAnother = (Button) findViewById(R.id.bScanAnother);
 
@@ -49,41 +53,6 @@ public class ScannedItemActivity extends AppCompatActivity {
                                               ScannedItemActivity.this.startActivity(intent);
                                           }
                                       });
-
-        // Response received from the server
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonResponse = new JSONObject(response);
-                    boolean success = jsonResponse.getBoolean("success");
-
-                    if (success) {
-                        System.out.println("It's okay");
-                        String order_number = jsonResponse.getString("order_number");
-                        String user = jsonResponse.getString("user");
-
-                        tvOrderNumber.setText(order_number);
-                        tvUser.setText("Hey "+user+", welcome to the event!");
-
-                        // Now that we've got it all, we must render it to a text view with a little tick :)
-                    } else {
-                        Intent intent = new Intent(ScannedItemActivity.this, NotValidActivity.class);
-                        ScannedItemActivity.this.startActivity(intent);
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-
-        SharedPreferences userDetails = getSharedPreferences("Login", MODE_PRIVATE);
-        String username = userDetails.getString("username", "");
-
-        CheckInRequest checkInRequest = new CheckInRequest(qrcode, username, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(ScannedItemActivity.this);
-        queue.add(checkInRequest);
 
     }
 

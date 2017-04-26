@@ -128,7 +128,7 @@ public class ScanTicketActivity extends AppCompatActivity {
                                 vibrator.vibrate(1000);
                                 String qrcode = qrcodes.valueAt(0).displayValue;
 
-                                Intent intent = new Intent(ScanTicketActivity.this, ScannedItemActivity.class);
+                                Intent intent = new Intent(ScanTicketActivity.this, LoadingActivity.class);
                                 intent.putExtra("qrcode", qrcode);
                                 ScanTicketActivity.this.startActivity(intent);
                             }

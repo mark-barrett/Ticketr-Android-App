@@ -36,7 +36,11 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".ScannedItemActivity" />
-        <activity android:name=".NotValidActivity"></activity>
+        <activity android:name=".NotValidActivity" />
+        <activity
+            android:name=".LoadingActivity"
+            android:label="@string/title_activity_loading"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
